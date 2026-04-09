@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saptasur Testimonials</title>
+    <style>
+        :root {
+            --primary-dark: #101c26;
+            --accent-orange: #b87352;
+            --text-gray: #555;
+            --card-bg: #f8f8f8;
+            --transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 60px 20px;
+            background-color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Large Heading Section */
+        .quote-icon {
+            font-size: 80px;
+            color: #ececec;
+            margin-bottom: -25px;
+            font-family: serif;
+        }
+
+        h2 {
+            font-size: 42px; /* Bigger Title */
+            margin: 10px 0;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .subtitle {
+            color: var(--text-gray);
+            max-width: 700px;
+            font-size: 18px; /* Bigger Subtitle */
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+
+        /* Slider Engine */
+        .slider-viewport {
+            overflow: visible; /* Allows shadows to show */
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .slider-container {
+            display: flex;
+            gap: 30px; /* Bigger gap */
+            transition: transform var(--transition);
+        }
+
+        /* Bigger Cards */
+        .testimonial-card {
+            min-width: calc(33.333% - 20px);
+            min-height: 380px; /* Increased height */
+            background: var(--card-bg);
+            padding: 50px 40px; /* More padding */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        /* Active Dark Card */
+        .testimonial-card.active {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Bigger Review Text */
+        .testimonial-card .review-text {
+            font-size: 24px; /* Significantly bigger text */
+            line-height: 1.5;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-info img {
+            display: none;
+        }
+
+        .testimonial-card.active img {
+            border-color: var(--accent-orange);
+        }
+
+        .user-details .name {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .user-details .title {
+            display: block;
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        /* Large Controls */
+        .controls-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #f0f0f0;
+            padding-top: 30px;
+            margin-top: 20px;
+        }
+
+        .progress-bar-container {
+            width: 200px;
+            height: 4px;
+            background: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            position: absolute;
+            height: 100%;
+            width: 30%;
+            background: var(--accent-orange);
+            transition: left var(--transition);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            width: 50px; /* Bigger Buttons */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #965b3e;
+            transform: scale(1.05);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .testimonial-card { min-width: calc(50% - 15px); }
+            h2 { font-size: 36px; }
+        }
+
+        @media (max-width: 600px) {
+            .testimonial-card { 
+                min-width: 100%; 
+                padding: 40px 30px;
+                min-height: 320px;
+            }
+            h2 { font-size: 28px; }
+            .testimonial-card .review-text { font-size: 20px; }
+            .progress-bar-container { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="quote-icon">“</div>
+    <h2>Why Clients Rely on Us</h2>
+    <p class="subtitle">Join hundreds of satisfied students and partners who have accelerated their musical journey with Saptasur's expert guidance.</p>
+
+    <div class="slider-viewport" id="viewport">
+        <div class="slider-container" id="slider">
+            <div class="testimonial-card active">
+                <div class="review-text">"Saptasur has been an invaluable partner in navigating the complexities of advanced musical theory."</div>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/100?u=1" alt="user">
+                    <div class="user-details">
+                        <span class="name">Priya Sharma</span>
+                        <span class="title">Business Owner</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="review-text">"The faculty's dedication to classical excellence is unmatched in the region. Truly a premium experience."</div>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/100?u=2" alt="user">
+                    <div class="user-details">
+                        <span class="name">Rajesh Kumar</span>
+                        <span class="title">Vocalist</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="review-text">"Their hybrid learning model allowed me to master the Tabla while managing my full-time corporate job."</div>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/100?u=3" alt="user">
+                    <div class="user-details">
+                        <span class="name">Amit Shah</span>
+                        <span class="title">Software Engineer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="review-text">"From the instruments to the pedagogy, everything at Saptasur radiates professional quality and passion."</div>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/100?u=4" alt="user">
+                    <div class="user-details">
+                        <span class="name">Neha Verma</span>
+                        <span class="title">Percussionist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls-wrapper">
+        <div class="progress-bar-container">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <div class="btn-group">
+            <button class="nav-btn" onclick="prev()">&#8592;</button>
+            <button class="nav-btn" onclick="next()">&#8594;</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const slider = document.getElementById('slider');
+    const progress = document.getElementById('progress');
+    const viewport = document.getElementById('viewport');
+    
+    let currentIndex = 0;
+    let autoPlayInterval;
+
+    function getVisibleCards() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
+
+    function updateSlider() {
+        const cards = document.querySelectorAll('.testimonial-card');
+        const gap = 30;
+        const cardWidth = cards[0].offsetWidth + gap;
+        const visibleCards = getVisibleCards();
+        const maxIndex = cards.length - 1;
+
+        if (currentIndex > maxIndex) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = maxIndex;
+
+        slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+        
+        // Progress Bar Calculation
+        const progressPercent = maxIndex > 0 ? (currentIndex / maxIndex) * 100 : 0;
+        progress.style.width = `${progressPercent}%`;
+
+        // Active State Toggle - highlight the current card
+        cards.forEach((card, index) => {
+            card.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function next() {
+        currentIndex++;
+        updateSlider();
+    }
+
+    function prev() {
+        currentIndex--;
+        updateSlider();
+    }
+
+    // Automatic Carousel Logic
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(next, 4000); // 4 Seconds
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    // Event Listeners for Interaction
+    viewport.addEventListener('mouseenter', stopAutoPlay);
+    viewport.addEventListener('mouseleave', startAutoPlay);
+    viewport.addEventListener('touchstart', stopAutoPlay);
+    viewport.addEventListener('touchend', startAutoPlay);
+
+    // Initialize
+    window.addEventListener('resize', updateSlider);
+    startAutoPlay();
+    updateSlider(); // Initial call
+</script>
+
+</body>
+</html>

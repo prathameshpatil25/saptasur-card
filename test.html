@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozeum | Art & History</title>
+    <style>
+        /* --- Base Setup --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f7f4ee;
+            --text: #1a1a1a;
+            --muted: #666;
+            --border: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-left {
+            flex: 1;
+            min-width: 320px;
+            padding: 80px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-left h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-left p {
+            max-width: 450px;
+            margin-bottom: 30px;
+            color: var(--muted);
+        }
+
+        .hero-right {
+            flex: 1;
+            min-width: 320px;
+            background: url('https://images.unsplash.com/photo-1544531585-9847b68c8c86?auto=format&fit=crop&q=80&w=1000') center/cover;
+            min-height: 500px;
+        }
+
+        /* --- Collection Masonry Section --- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sub-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        /* --- THE MASONRY TRICK --- */
+        .masonry-grid {
+            /* This creates columns rather than rows */
+            column-count: 4;
+            column-gap: 30px; /* Space between columns */
+        }
+
+        .card {
+            /* Prevents the card from breaking across two columns */
+            break-inside: avoid; 
+            margin-bottom: 30px; /* Space between items vertically */
+            display: block;
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+            margin-bottom: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover img {
+            opacity: 0.8;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* --- Responsive adjustments --- */
+        @media (max-width: 1100px) {
+            .masonry-grid { column-count: 3; }
+        }
+
+        @media (max-width: 768px) {
+            .masonry-grid { column-count: 2; }
+            .hero-right { min-height: 350px; }
+        }
+
+        @media (max-width: 480px) {
+            .masonry-grid { column-count: 1; }
+            .hero-left { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-left">
+            <h1>Welcome To <br> The Art And History Museum Ozeum</h1>
+            <p>Exploring the boundaries of art, culture, and human history through our curated collections.</p>
+            <a href="#" style="text-decoration:none; color:black; font-weight:bold; letter-spacing:1px;">MORE ABOUT &rarr;</a>
+        </div>
+        <div class="hero-right"></div>
+    </header>
+
+    <main class="container">
+        <div class="header-row">
+            <h2>Collection</h2>
+            <a href="#" style="text-decoration:none; color:var(--muted); font-size:0.8rem; font-weight:bold;">VIEW ALL COLLECTION &rarr;</a>
+        </div>
+        <p class="sub-desc">Our collection currently contains more than 100,000 works of art and design dating from ancient times to today.</p>
+
+        <div class="masonry-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&h=700&fit=crop" alt="Art">
+                <h3>Madonna with Saints</h3>
+                <p>from 1484 until 1485</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?w=500&h=400&fit=crop" alt="Art">
+                <h3>Pallas and the Centaur</h3>
+                <p>1482</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1576769267415-9642010aa962?w=500&h=600&fit=crop" alt="Art">
+                <h3>The Adoration of the Magi</h3>
+                <p>from 1478 until 1482</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=500&h=800&fit=crop" alt="Art">
+                <h3>Calumny of Apelles</h3>
+                <p>from 1494 until 1495</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?w=500&h=350&fit=crop" alt="Art">
+                <h3>Annunciation</h3>
+                <p>from 1489 until 1490</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=500&h=750&fit=crop" alt="Art">
+                <h3>Alessandro di Mariano</h3>
+                <p>from 1476 until 1480</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=500&h=550&fit=crop" alt="Art">
+                <h3>Madonna with Saints</h3>
+                <p>from 1484 until 1485</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=500&h=450&fit=crop" alt="Art">
+                <h3>Calumny of Apelles</h3>
+                <p>from 1494 until 1495</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" style="background-color: white; padding: 80px 20px; border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="quote-icon" style="font-size: 80px; color: #ececec; margin-bottom: -25px; font-family: serif;">"</div>
+            <h2 style="font-size: 42px; margin: 10px 0; font-weight: 700; color: #111;">Why Clients Rely on Us</h2>
+            <p style="color: var(--muted); max-width: 700px; font-size: 18px; margin-bottom: 50px; line-height: 1.6;">Join hundreds of satisfied students and partners who have accelerated their musical journey with Saptasur's expert guidance.</p>
+
+            <div class="slider-viewport" id="viewport" style="overflow: visible; margin-bottom: 40px; position: relative;">
+                <div class="slider-container" id="slider" style="display: flex; gap: 30px; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
+                    <div class="testimonial-card active" style="min-width: calc(33.333% - 20px); min-height: 380px; background: #101c26; color: white; padding: 50px 40px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.4s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.2); transform: translateY(-10px);">
+                        <div style="font-size: 24px; line-height: 1.5; font-weight: 500; margin-bottom: 40px;">"Saptasur has been an invaluable partner in navigating the complexities of advanced musical theory."</div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div>
+                                <span style="display: block; font-size: 18px; font-weight: bold;">Priya Sharma</span>
+                                <span style="display: block; font-size: 14px; opacity: 0.8; margin-top: 4px;">Business Owner</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" style="min-width: calc(33.333% - 20px); min-height: 380px; background: rgb(16, 28, 38); padding: 50px 40px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.03); color: white;">
+                        <div style="font-size: 24px; line-height: 1.5; font-weight: 500; margin-bottom: 40px; color: white !important;">"The faculty's dedication to classical excellence is unmatched in the region. Truly a premium experience."</div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div>
+                                <span style="display: block; font-size: 18px; font-weight: bold; color: #D4AF37 !important;">Rajesh Kumar</span>
+                                <span style="display: block; font-size: 14px; opacity: 0.8; margin-top: 4px; color: white !important;">Vocalist</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" style="min-width: calc(33.333% - 20px); min-height: 380px; background: rgb(16, 28, 38); padding: 50px 40px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.03); color: white;">
+                        <div style="font-size: 24px; line-height: 1.5; font-weight: 500; margin-bottom: 40px; color: white !important;">"Their hybrid learning model allowed me to master the Tabla while managing my full-time corporate job."</div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div>
+                                <span style="display: block; font-size: 18px; font-weight: bold; color: #D4AF37 !important;">Amit Shah</span>
+                                <span style="display: block; font-size: 14px; opacity: 0.8; margin-top: 4px; color: white !important;">Software Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" style="min-width: calc(33.333% - 20px); min-height: 380px; background: rgb(16, 28, 38); padding: 50px 40px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.03); color: white;">
+                        <div style="font-size: 24px; line-height: 1.5; font-weight: 500; margin-bottom: 40px; color: white !important;">"From the instruments to the pedagogy, everything at Saptasur radiates professional quality and passion."</div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div>
+                                <span style="display: block; font-size: 18px; font-weight: bold; color: #D4AF37 !important;">Neha Verma</span>
+                                <span style="display: block; font-size: 14px; opacity: 0.8; margin-top: 4px; color: white !important;">Percussionist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #f0f0f0; padding-top: 30px; margin-top: 20px;">
+                <div style="width: 200px; height: 4px; background: #eee; position: relative; overflow: hidden;">
+                    <div id="progress" style="position: absolute; height: 100%; width: 30%; background: #b87352; transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);"></div>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <button class="nav-btn" onclick="prev()" style="background: #b87352; color: white; border: none; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; transition: 0.3s;">&#8592;</button>
+                    <button class="nav-btn" onclick="next()" style="background: #b87352; color: white; border: none; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; transition: 0.3s;">&#8594;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Original masonry log
+        console.log("Masonry layout active. Images will stack based on height.");
+
+        // Reviews Slider Script
+        const slider = document.getElementById('slider');
+        const progress = document.getElementById('progress');
+        const viewport = document.getElementById('viewport');
+        
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        function getVisibleCards() {
+            if (window.innerWidth <= 600) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 3;
+        }
+
+        function updateSlider() {
+            const cards = document.querySelectorAll('.testimonial-card');
+            const gap = 30;
+            const cardWidth = cards[0].offsetWidth + gap;
+            const visibleCards = getVisibleCards();
+            const maxIndex = cards.length - 1;
+
+            if (currentIndex > maxIndex) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = maxIndex;
+
+            slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+            
+            // Progress Bar Calculation
+            const progressPercent = maxIndex > 0 ? (currentIndex / maxIndex) * 100 : 0;
+            progress.style.width = `${progressPercent}%`;
+
+            // Active State Toggle - highlight the current card
+            cards.forEach((card, index) => {
+                if (index === currentIndex) {
+                    card.style.background = '#101c26';
+                    card.style.color = 'white';
+                    card.style.transform = 'translateY(-10px)';
+                    card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.2)';
+                } else {
+                    card.style.background = '#f8f8f8';
+                    card.style.color = '#1a1a1a';
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 10px 30px rgba(0,0,0,0.03)';
+                }
+            });
+        }
+
+        function next() {
+            currentIndex++;
+            updateSlider();
+        }
+
+        function prev() {
+            currentIndex--;
+            updateSlider();
+        }
+
+        // Automatic Carousel Logic
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(next, 4000); // 4 Seconds
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Event Listeners for Interaction
+        viewport.addEventListener('mouseenter', stopAutoPlay);
+        viewport.addEventListener('mouseleave', startAutoPlay);
+        viewport.addEventListener('touchstart', stopAutoPlay);
+        viewport.addEventListener('touchend', startAutoPlay);
+
+        // Initialize
+        window.addEventListener('resize', updateSlider);
+        startAutoPlay();
+        updateSlider(); // Initial call
+    </script>
+</body>
+</html>
